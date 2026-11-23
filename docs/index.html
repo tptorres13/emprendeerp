@@ -1,39 +1,11 @@
-<!DOCTYPE html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Herramientas</title>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#1e293b}
-h1{font-size:24px}h2{margin-top:28px;font-size:18px;color:#047857}
-table{border-collapse:collapse;width:100%;margin-top:8px}th,td{border:1px solid #cbd5e1;padding:10px;text-align:left;vertical-align:top;font-size:15px}
-th{background:#ecfdf5}.li{margin:4px 0}</style><body><h1>Herramientas que usa el proyecto (explicado sin tecnicismos)</h1>
-<h2>Lo que construye el sistema</h2>
-<table>
-<tr><th>Herramienta</th><th>Para qué sirve</th></tr>
-<tr><td><b>Python</b></td><td>El idioma en el que está escrito el programa.</td></tr>
-<tr><td><b>Django</b></td><td>El "esqueleto" del sistema: ya trae resueltas muchas cosas comunes (usuarios, páginas, seguridad), así no se arma todo de cero.</td></tr>
-<tr><td><b>PostgreSQL</b></td><td>La base de datos: donde se guarda toda la información (productos, ventas, clientes). Es como un Excel gigante, ordenado y muy seguro.</td></tr>
-<tr><td><b>HTML + Tailwind CSS</b></td><td>Lo que hace que las pantallas se vean lindas y se adapten al celular.</td></tr>
-<tr><td><b>HTMX</b></td><td>Permite que partes de la pantalla se actualicen sin recargar toda la página, para que se sienta rápido.</td></tr>
-<tr><td><b>django-allauth</b></td><td>Se encarga de registrarse, entrar, recuperar la contraseña y bloquear a quien intenta adivinar claves.</td></tr>
-<tr><td><b>Argon2</b></td><td>Guarda las contraseñas cifradas, para que nadie pueda leerlas, ni siquiera nosotros.</td></tr>
-<tr><td><b>Gunicorn y Whitenoise</b></td><td>Los que "sirven" el sistema en internet cuando está publicado.</td></tr>
-</table>
-<h2>Lo que lo mantiene ordenado y seguro</h2>
-<table>
-<tr><th>Herramienta</th><th>Para qué sirve</th></tr>
-<tr><td><b>pytest</b></td><td>Corre 47 pruebas automáticas que verifican que todo funcione, por ejemplo que un negocio nunca vea los datos de otro.</td></tr>
-<tr><td><b>Ruff</b></td><td>Revisa que el código esté prolijo y sin errores comunes, como un corrector ortográfico.</td></tr>
-<tr><td><b>pre-commit</b></td><td>Corre esa revisión solo, antes de guardar cada cambio.</td></tr>
-<tr><td><b>GitHub Actions (CI)</b></td><td>Cada vez que se sube un cambio, repite todas las pruebas solo. Si algo se rompe, avisa.</td></tr>
-<tr><td><b>uv</b></td><td>Administra las librerías que usa el proyecto y deja todo con versiones fijas, para que funcione igual en cualquier computadora.</td></tr>
-</table>
-<h2>Lo que lo hace fácil de instalar y publicar</h2>
-<table>
-<tr><th>Herramienta</th><th>Para qué sirve</th></tr>
-<tr><td><b>Docker y Docker Compose</b></td><td>Empaquetan el sistema con todo lo que necesita. Con un solo comando se levanta igual en cualquier computadora o servidor.</td></tr>
-<tr><td><b>Mailpit</b></td><td>Una "casilla de mail falsa" para ver los emails que manda el sistema (como el de recuperar contraseña) sin enviarlos de verdad.</td></tr>
-<tr><td><b>Railway, Render o un VPS</b></td><td>Los servicios donde se publicaría el sistema en internet. Todavía no elegimos ninguno.</td></tr>
-<tr><td><b>GitHub</b></td><td>Donde se guarda el código con todo su historial, y la copia de resguardo del proyecto.</td></tr>
-</table>
-<h2>Qué pasa cuando entrás al sistema</h2>
-<p class="li">1. Te registrás con tu nombre, email y contraseña.</p>
-<p class="li">2. Un asistente de 3 pasos te pregunta el nombre del negocio, el rubro, la situación frente a ARCA y la moneda.</p>
-<p class="li">3. Te sugiere categorías según el rubro (por ejemplo, "Velas y aromas" para deco).</p>
-<p class="li">4. Entrás a tu inicio. Cada negocio ve solo sus propios datos.</p></body></html>
+<!DOCTYPE html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Emprende · Vista previa</title>
+<style>body{font-family:system-ui,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px;color:#1e293b;background:#f8fafc}
+h1{color:#047857}h2{margin-top:32px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+figure{margin:0;background:#fff;padding:10px;border-radius:12px;box-shadow:0 1px 3px #0002}figure img{width:100%;border-radius:8px;border:1px solid #e2e8f0}
+figcaption{text-align:center;font-size:14px;margin-top:8px;font-weight:600}.wide img{width:100%}a{color:#047857;font-weight:600}</style><body>
+<h1>Emprende · Vista previa de la interfaz</h1>
+<p>Capturas del sistema funcionando (Fase 0). Esta página es solo una vista previa: el sistema real corre en un servidor.</p>
+<p><a href="herramientas.html">Ver qué herramientas usa el proyecto</a></p>
+<h2>En el celular</h2><div class="grid"><figure><img src="img/01-landing.png" alt="Bienvenida"><figcaption>Bienvenida</figcaption></figure><figure><img src="img/02-signup.png" alt="Crear cuenta"><figcaption>Crear cuenta</figcaption></figure><figure><img src="img/03-onb1.png" alt="Asistente, paso 1: nombre y rubro"><figcaption>Asistente, paso 1: nombre y rubro</figcaption></figure><figure><img src="img/04-onb2.png" alt="Asistente, paso 2: ARCA y moneda"><figcaption>Asistente, paso 2: ARCA y moneda</figcaption></figure><figure><img src="img/05-onb3.png" alt="Asistente, paso 3: categorías sugeridas"><figcaption>Asistente, paso 3: categorías sugeridas</figcaption></figure><figure><img src="img/06-home.png" alt="Inicio (celular)"><figcaption>Inicio (celular)</figcaption></figure><figure><img src="img/07-settings.png" alt="Mi negocio"><figcaption>Mi negocio</figcaption></figure><figure><img src="img/09-login-error.png" alt="Ingresar (con aviso de error)"><figcaption>Ingresar (con aviso de error)</figcaption></figure></div>
+<h2>En la computadora</h2><figure class="wide"><img src="img/11-desktop-home.png" alt="Inicio en computadora"><figcaption>Inicio con menú lateral</figcaption></figure>
+</body></html>
