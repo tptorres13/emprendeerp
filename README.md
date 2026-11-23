@@ -87,6 +87,8 @@ Render o un VPS:
 
 Backups: ver [docs/backups.md](docs/backups.md).
 
+Guía de herramientas explicada sin tecnicismos: [docs/herramientas.md](docs/herramientas.md).
+
 ## Estructura
 
 ```
