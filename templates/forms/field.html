@@ -1,0 +1,19 @@
+{% with widget_type=field.widget_type %}
+<div class="field{% if field.errors %} has-error{% endif %}">
+  {% if widget_type == "checkbox" %}
+    <label class="flex items-center gap-3 font-normal">{{ field }} <span>{{ field.label }}</span></label>
+  {% elif widget_type == "radioselect" or widget_type == "checkboxselectmultiple" %}
+    <fieldset>
+      <legend class="field-label mb-2">{{ field.label }}</legend>
+      <div class="choice-list">
+        {% for choice in field %}<label>{{ choice.tag }} <span>{{ choice.choice_label }}</span></label>{% endfor %}
+      </div>
+    </fieldset>
+  {% else %}
+    {% if field.label %}<label for="{{ field.id_for_label }}">{{ field.label }}</label>{% endif %}
+    {{ field }}
+  {% endif %}
+  {% if field.help_text %}<div class="field-help [&_a]:font-semibold [&_a]:text-brand-700 [&_ul]:list-disc [&_ul]:pl-5">{{ field.help_text|safe }}</div>{% endif %}
+  {% if field.errors %}<div class="field-errors">{% for error in field.errors %}<p>{{ error }}</p>{% endfor %}</div>{% endif %}
+</div>
+{% endwith %}

@@ -1,0 +1,6 @@
+{% extends "account/email/base_message.txt" %}
+{% block content %}{% autoescape off %}Alguien intentó recuperar la contraseña de una cuenta con el email {{ email }}, pero no tenemos ninguna cuenta registrada con esa dirección.
+
+Si no fuiste vos, ignorá este email. Si querés crear una cuenta, podés hacerlo acá:
+
+{{ signup_url }}{% endautoescape %}{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "layouts/entrance.html" %}
+{% block head_title %}Configurá tu negocio{% endblock %}
+{% block content %}
+<div class="mb-6">
+  <p class="text-sm font-semibold text-brand-700">Paso {{ step }} de {{ total_steps }}</p>
+  <div class="mt-2 grid grid-cols-3 gap-2" aria-hidden="true">
+    {% for i in steps_range %}<div class="h-1.5 rounded-full {% if i <= step %}bg-brand-600{% else %}bg-slate-200{% endif %}"></div>{% endfor %}
+  </div>
+</div>
+
+{% if step == 1 %}
+  <h1 class="page-title">Contanos de tu negocio</h1>
+  <p class="mt-2 mb-6 text-slate-600">Con esto armamos todo a tu medida. Lo podés cambiar después.</p>
+{% elif step == 2 %}
+  <h1 class="page-title">Impuestos y moneda</h1>
+  <p class="mt-2 mb-6 text-slate-600">Así sabemos cómo mostrarte los precios. Si no estás seguro, elegí lo más parecido.</p>
+{% else %}
+  <h1 class="page-title">Tus categorías</h1>
+  <p class="mt-2 mb-6 text-slate-600">Te sugerimos algunas según tu rubro, para que tus productos queden ordenados.</p>
+{% endif %}
+
+<form method="post" class="space-y-6">
+  {% csrf_token %}
+  {{ form }}
+  {% if step == 2 %}
+  <details class="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">
+    <summary class="cursor-pointer font-semibold text-slate-800">¿Cuál es la diferencia?</summary>
+    <ul class="mt-2 space-y-2">{% for key, text in tax_help.items %}<li>{{ text }}</li>{% endfor %}</ul>
+  </details>
+  {% endif %}
+  <div class="flex flex-col gap-3">
+    <button type="submit" class="btn-primary w-full">{% if step < total_steps %}Seguir{% else %}Listo, empezar{% endif %}</button>
+    {% if step > 1 %}<a href="?paso={{ step|add:'-1' }}" class="btn-secondary w-full">Volver</a>{% endif %}
+  </div>
+</form>
+{% endblock %}

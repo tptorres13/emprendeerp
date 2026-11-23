@@ -1,0 +1,20 @@
+{% extends "layouts/app.html" %}
+{% block head_title %}Inicio{% endblock %}
+{% block content %}
+<h1 class="page-title">¡Hola, {{ user.first_name }}!</h1>
+<p class="mt-1 text-slate-600">Este es el inicio de <strong>{{ current_business.name }}</strong>.</p>
+
+<section class="card mt-6">
+  <h2 class="text-lg font-bold text-slate-900">Tus categorías</h2>
+  {% if categories %}
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {% for category in categories %}
+        <li class="rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-800 ring-1 ring-brand-200">{{ category.name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="mt-2 text-slate-600">Todavía no cargaste categorías.</p>
+  {% endif %}
+  <p class="mt-4 text-sm text-slate-500">Muy pronto vas a poder cargar tus productos acá.</p>
+</section>
+{% endblock %}

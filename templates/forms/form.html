@@ -1,0 +1,9 @@
+{% if form.non_field_errors %}
+<div class="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700 ring-1 ring-red-200" role="alert">
+  {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+</div>
+{% endif %}
+{% for field in form.hidden_fields %}{{ field }}{% endfor %}
+<div class="space-y-5">
+{% for field in form.visible_fields %}{{ field.as_field_group }}{% endfor %}
+</div>

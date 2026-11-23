@@ -1,0 +1,6 @@
+{% autoescape off %}¡Hola!
+
+{% block content %}{% endblock content %}
+
+El equipo de {{ product_name }}
+{% endautoescape %}

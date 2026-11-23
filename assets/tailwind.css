@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@source "../templates";
+@source "../apps";
+
+@theme {
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-200: #a7f3d0;
+  --color-brand-500: #10b981;
+  --color-brand-600: #059669;
+  --color-brand-700: #047857;
+  --color-brand-800: #065f46;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- Reusable components (usable with variants and @apply) -------------- */
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-semibold
+    transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2
+    disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800;
+}
+@utility btn-secondary {
+  @apply btn bg-white text-slate-800 ring-1 ring-slate-300 hover:bg-slate-50;
+}
+@utility btn-link {
+  @apply font-semibold text-brand-700 hover:underline;
+}
+@utility card {
+  @apply rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200;
+}
+@utility page-title {
+  @apply text-2xl font-bold tracking-tight text-slate-900;
+}
+
+@layer components {
+  /* Form fields rendered by templates/forms/field.html */
+  .field { @apply flex flex-col gap-1.5; }
+  .field > label, .field-label { @apply text-sm font-semibold text-slate-800; }
+  .field input[type="text"], .field input[type="email"], .field input[type="password"],
+  .field input[type="number"], .field input[type="tel"], .field input[type="search"],
+  .field input[type="date"], .field input[type="url"], .field select, .field textarea {
+    @apply block w-full rounded-xl border-0 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm
+      ring-1 ring-slate-300 ring-inset placeholder:text-slate-400
+      focus:ring-2 focus:ring-brand-500 focus:outline-none;
+  }
+  .field.has-error input, .field.has-error select, .field.has-error textarea { @apply ring-red-500; }
+  .field input[type="checkbox"] { @apply size-5 rounded border-slate-300 accent-brand-600; }
+  .field-help { @apply text-sm text-slate-500; }
+  .field-errors { @apply text-sm font-medium text-red-600; }
+
+  /* Radio / checkbox lists as tappable cards */
+  .choice-list { @apply grid gap-2; }
+  .choice-list label {
+    @apply flex cursor-pointer items-center gap-3 rounded-xl bg-white px-4 py-3 text-base text-slate-800
+      ring-1 ring-slate-300 has-[:checked]:bg-brand-50 has-[:checked]:ring-2 has-[:checked]:ring-brand-500;
+  }
+  .choice-list input { @apply size-5 shrink-0 accent-brand-600; }
+}

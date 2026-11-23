@@ -1,0 +1,1 @@
+{% load account %}{% user_display user as name %}¡Hola, {{ user.first_name|default:name }}!

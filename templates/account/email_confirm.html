@@ -1,0 +1,20 @@
+{% extends "layouts/entrance.html" %}
+{% block head_title %}Confirmar email{% endblock %}
+{% block content %}
+{% if confirmation and can_confirm %}
+  <h1 class="page-title">Confirmá tu email</h1>
+  <p class="mt-2 text-slate-600">Confirmá que <strong>{{ confirmation.email_address.email }}</strong> es tu email.</p>
+  <form method="post" action="{% url 'account_confirm_email' confirmation.key %}" class="mt-6">
+    {% csrf_token %}
+    {{ redirect_field }}
+    <button type="submit" class="btn-primary w-full">Confirmar</button>
+  </form>
+{% elif confirmation %}
+  <h1 class="page-title">No pudimos confirmar el email</h1>
+  <p class="mt-2 text-slate-600">Ese email ya está confirmado en otra cuenta.</p>
+{% else %}
+  <h1 class="page-title">Este link ya no sirve</h1>
+  <p class="mt-2 text-slate-600">Venció o ya lo usaste. Ingresá a tu cuenta para pedir uno nuevo.</p>
+  <a class="btn-primary mt-6 w-full" href="{% url 'account_login' %}">Ingresar</a>
+{% endif %}
+{% endblock %}

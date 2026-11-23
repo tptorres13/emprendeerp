@@ -1,0 +1,64 @@
+# Rioplatense overrides for third-party strings (Django, django-allauth).
+# Compile with: uv run python manage.py compilemessages --ignore=.venv
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es_AR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# --- django-allauth ---------------------------------------------------------
+msgid "The email address and/or password you specified are not correct."
+msgstr "El email o la contraseña no son correctos. Revisalos y probá de nuevo."
+
+msgid "Too many failed login attempts. Try again later."
+msgstr "Hubo demasiados intentos fallidos. Esperá unos minutos y probá de nuevo."
+
+msgid "Forgot your password?"
+msgstr "¿Te olvidaste la contraseña?"
+
+msgid "Please type your current password."
+msgstr "Escribí tu contraseña actual."
+
+msgid "Email address"
+msgstr "Email"
+
+msgid "Password (again)"
+msgstr "Repetí la contraseña"
+
+msgid "New Password (again)"
+msgstr "Repetí la contraseña nueva"
+
+msgid "You must type the same password each time."
+msgstr "Las contraseñas no coinciden."
+
+msgid "A user is already registered with this email address."
+msgstr "Ya hay una cuenta con este email."
+
+# --- Django password validation ---------------------------------------------
+msgid "Your password can’t be too similar to your other personal information."
+msgstr "No puede parecerse a tu nombre ni a tu email."
+
+msgid "Your password must contain at least %(min_length)d character."
+msgid_plural "Your password must contain at least %(min_length)d characters."
+msgstr[0] "Tiene que tener al menos %(min_length)d carácter."
+msgstr[1] "Tiene que tener al menos %(min_length)d caracteres."
+
+msgid "Your password can’t be a commonly used password."
+msgstr "No puede ser una contraseña muy usada."
+
+msgid "Your password can’t be entirely numeric."
+msgstr "No puede tener solo números."
+
+msgid "This password is too short. It must contain at least %d character."
+msgid_plural "This password is too short. It must contain at least %d characters."
+msgstr[0] "La contraseña es muy corta: tiene que tener al menos %d carácter."
+msgstr[1] "La contraseña es muy corta: tiene que tener al menos %d caracteres."
+
+msgid "This password is too common."
+msgstr "Esa contraseña es muy común. Elegí otra."
+
+msgid "This password is entirely numeric."
+msgstr "La contraseña no puede tener solo números."
+
+msgid "The password is too similar to the %(verbose_name)s."
+msgstr "La contraseña se parece demasiado a tu %(verbose_name)s."

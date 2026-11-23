@@ -1,0 +1,16 @@
+{% extends "layouts/entrance.html" %}
+{% block head_title %}Ordená tu emprendimiento{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Ordená tu emprendimiento, sin planillas.</h1>
+<p class="mt-4 text-lg text-slate-600">Stock, ventas, compras y caja en un solo lugar. Desde el celu, en pesos o en dólares, y sin palabras raras.</p>
+<ul class="mt-6 space-y-3 text-slate-700">
+  {% load nav %}
+  <li class="flex gap-3">{% icon "check" "size-6 shrink-0 text-brand-600" %}Sabé cuánto stock te queda de cada producto.</li>
+  <li class="flex gap-3">{% icon "check" "size-6 shrink-0 text-brand-600" %}Registrá ventas y cobros en segundos.</li>
+  <li class="flex gap-3">{% icon "check" "size-6 shrink-0 text-brand-600" %}Mirá la caja del día y quién te debe.</li>
+</ul>
+<div class="mt-8 flex flex-col gap-3">
+  <a href="{% url 'account_signup' %}" class="btn-primary w-full">Crear cuenta gratis</a>
+  <a href="{% url 'account_login' %}" class="btn-secondary w-full">Ya tengo cuenta</a>
+</div>
+{% endblock %}

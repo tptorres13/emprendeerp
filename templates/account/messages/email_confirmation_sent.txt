@@ -1,0 +1,1 @@
+Te mandamos un email a {{ email }} para confirmar tu dirección.

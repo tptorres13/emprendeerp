@@ -1,0 +1,12 @@
+{% if messages %}
+<div id="messages" class="pointer-events-none fixed inset-x-0 top-3 z-50 flex flex-col items-center gap-2 px-4" aria-live="polite">
+  {% for message in messages %}
+  <div class="pointer-events-auto w-full max-w-md rounded-xl px-4 py-3 text-sm font-medium shadow-lg ring-1
+    {% if message.level_tag == 'error' %}bg-red-50 text-red-800 ring-red-200{% elif message.level_tag == 'warning' %}bg-amber-50 text-amber-900 ring-amber-200{% else %}bg-white text-slate-800 ring-slate-200{% endif %}"
+    role="status" onclick="this.remove()">
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+<script>setTimeout(() => document.getElementById("messages")?.remove(), 5000)</script>
+{% endif %}

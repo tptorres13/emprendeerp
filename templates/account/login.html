@@ -1,0 +1,12 @@
+{% extends "layouts/entrance.html" %}
+{% block head_title %}Ingresar{% endblock %}
+{% block content %}
+<h1 class="page-title">Ingresá a tu cuenta</h1>
+<p class="mt-2 mb-6 text-slate-600">¿Todavía no tenés cuenta? <a class="btn-link" href="{{ signup_url }}">Creala gratis</a>.</p>
+<form method="post" action="{% url 'account_login' %}" class="space-y-6">
+  {% csrf_token %}
+  {{ form }}
+  {{ redirect_field }}
+  <button type="submit" class="btn-primary w-full">Ingresar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "account/email/base_message.txt" %}
+{% block content %}{% autoescape off %}Gracias por registrarte. Para confirmar tu email, entrá a este link:
+
+{% if code %}{{ code }}{% else %}{{ activate_url }}{% endif %}
+
+Si no creaste una cuenta, ignorá este email.{% endautoescape %}{% endblock content %}
